@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(image.jpg);
+            font-family: Arial, sans-serif;
+            /* background-color: hsl(0, 94%, 49%); */
+            margin: 10;
+            padding: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            box-sizing:border-box;
+        }
+
+        .container {
+            border: 9px ridge #c409c4;
+            /* background-image: url(mmm4.jpeg); */
+            background-color: rgb(23, 255, 232);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #bf12a8de;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+            color: rgb(245, 34, 15);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid hsl(66, 90%, 43%);
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: hsl(201, 83%, 7%);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hwb(230 27% 37%);
+            background-color: rgb(236, 13, 13);
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+        .remarks {
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input, button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <marquee behavior="alternet" direction="left-right"><h1>Brijesh Checking Days website </h1></marquee>
+        <form>
+            <label>Enter Number</label>
+            <input id="m" type="number" autocomplete="off" placeholder="Enter Marks"><br><br>
+            <button type="button" onclick="grade()">Check Days</button><br><br>
+
+            <label>Name Of Day</label>
+            <input id="n" type="text" autocomplete="off" readonly><br><br>
+
+            <label>Remarks</label>
+            <input id="l" type="text" autocomplete="off" readonly>
+        </form>
+    <script>
+        function grade(){
+            let days= document.getElementById("m").value;
+            let result = "";
+            let remark = "";
+
+            if (days >= 1 && days<=1) {
+                result = "Monday";
+                remark = "Excellent!";
+            } else if ( days>=2  && days<=2) {
+                result = "Tuesday";
+                remark = "Very Good!";
+            } else if (days>=3  && days<=3) {
+                result = "Wedesday";
+                remark = "Good!";
+            } else if (days>=4 && days<=4) {
+                result = "thusday";
+                remark = "good!";
+            } else if (days >= 5 && days<=5) {
+                result = "Friday";
+                remark = "good day!";
+            } else if (days>= 6 && days<=6) {
+                result = "Saturday";
+                remark = "very good!";
+            }
+            else if (days>= 7 && days<=7) {
+                result = "Sunday";
+                remark = "excellent!";
+            }
+            document.getElementById("n").value = result;
+            document.getElementById("l").value = remark;
+            // document.getElementById("m").value = "";
+        }
+    </script>
+</body>
+</html>
