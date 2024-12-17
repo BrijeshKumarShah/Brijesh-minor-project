@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Table Website</title>
+    <style>
+        body {
+            background-image: url(image.jpg);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .c1 {
+            border: 9px ridge hwb(300 4% 33%);
+            background-color: #e1e956; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px hsla(87, 91%, 23%, 0.945);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: hsla(0, 93%, 44%, 0.871);
+            margin-bottom: 20px;
+            }
+        h2{
+            color: rgba(9, 43, 5, 0.871);
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            color: hsl(193, 89%, 31%);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid hsl(66, 90%, 43%);
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(236, 13, 13);
+        }
+
+        .c2 {
+            margin-top: 20px;
+            font-size: 16px;
+            color: rgb(6, 26, 237);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .c1 {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+            h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="c1">
+        <marquee behavior="shallow" direction="left-right"><h1>~:Check Table Website:~</h1></marquee>
+        <marquee behavior="alternate" direction="left-right"><h2> ~:Develop.By Brijesh:~</h2></marquee> 
+        <form>
+            <label for="m">Enter Number:</label>
+            <input type="number" id="m" autocomplete="off" placeholder="Enter a number">
+            <button type="button" onclick="createTables()">Generate Table</button>
+        </form>
+        <div class="c2" id="n"></div>
+    </div>
+
+    <script>
+        function createTables() {
+            const i = document.getElementById('m').value;
+            const r = document.getElementById('n');
+            r.innerHTML = '';
+            const n = parseInt(i);
+            if (isNaN(n) || n < 1) {
+                r.innerHTML = '<p style="color:red;"> Enter the valid number greater than 0.</p>';
+                return;
+            }
+            let tableHTML = `<h3>Table of ${n}</h3>`;
+            for (let i = 1; i <= 10; i++) {
+                tableHTML += `<p>${n} x ${i} = ${n * i}</p>`;
+            }
+            r.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
