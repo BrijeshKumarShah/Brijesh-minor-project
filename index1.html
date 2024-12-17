@@ -1,50 +1,45 @@
-</style>
-</head>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Check Table Website</title>
     <style>
         body {
             background-image: url(image.jpg);
             font-family: Arial, sans-serif;
-            /* background-color: hsl(0, 94%, 49%); */
-            margin: 10;
-            padding: 10;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            box-sizing:border-box;
-        }
-
-        .container {
-            border: 9px ridge hsl(0, 93%, 49%);
-            /* background-image: url(mmm4.jpeg); */
-            background-color: rgb(23, 255, 232);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+            height: 100vh;
             box-sizing: border-box;
         }
 
-        h1 {
+        .c1 {
+            border: 9px ridge hwb(300 4% 33%);
+            background-color: #e1e956; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px hsla(87, 91%, 23%, 0.945);
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            color: #bf12a8de;
+        }
+
+        h1 {
+            color: hsla(0, 93%, 44%, 0.871);
+            margin-bottom: 20px;
+            }
+        h2{
+            color: rgba(9, 43, 5, 0.871);
             margin-bottom: 20px;
         }
-
         label {
             font-size: 16px;
-            margin-bottom: 5px;
-            display: block;
-            color: rgb(245, 34, 15);
+            color: hsl(193, 89%, 31%);
         }
-
         input {
             width: 100%;
             padding: 10px;
@@ -53,12 +48,11 @@
             border: 1px solid hsl(66, 90%, 43%);
             box-sizing: border-box;
         }
-
         button {
             width: 100%;
             padding: 10px;
             background-color: #4CAF50;
-            color: hsl(201, 83%, 7%);
+            color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -66,78 +60,58 @@
         }
 
         button:hover {
-            background-color: hwb(230 27% 37%);
-            background-color: #ecbc0d;
+            background-color: rgb(236, 13, 13);
         }
-        .result {
+
+        .c2 {
             margin-top: 20px;
-            text-align: center;
-            font-size: 18px;
-            color: #333;
-        }
-        .remarks {
             font-size: 16px;
-            color: #666;
+            color: rgb(6, 26, 237);
+            text-align: center;
         }
 
         @media (max-width: 600px) {
-            .container {
+            .c1 {
                 padding: 15px;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 25px;
             }
-
-            input, button {
-                font-size: 14px;
+            h2 {
+                font-size: 25px;
             }
         }
-</style>
+    </style>
+</head>
 <body>
-    <div class="container">
-        <marquee behavior="alternet" direction="left-right"><h1> Brijesh Character Checking App</h1></marquee>
+    <div class="c1">
+        <marquee behavior="shallow" direction="left-right"><h1>~:Check Table Website:~</h1></marquee>
+        <marquee behavior="alternate" direction="left-right"><h2> ~:Develop.By Brijesh:~</h2></marquee> 
         <form>
-            <label for="m">Enter AnyCharacter</label>
-            <input id="m" type="text" autocomplete="off" placeholder="Enter Character" required>
-            <button type="button" onclick="grade()">Character Check</button>
-
-            <label for="n">Result</label>
-            <input id="n" type="text" autocomplete="off" readonly>
-
-            <label for="l">Your Enter Data</label>
-            <input id="l" type="text" autocomplete="off" readonly>
+            <label for="m">Enter Number:</label>
+            <input type="number" id="m" autocomplete="off" placeholder="Enter a number">
+            <button type="button" onclick="createTables()">Generate Table</button>
         </form>
+        <div class="c2" id="n"></div>
+    </div>
 
     <script>
-        function grade() {
-            let char = document.getElementById("m").value
-            let B = ""
-            let R = ""
-            if (char >= "a" && char <= "z") {
-                B = "Lower Case !"
-                R = char
+        function createTables() {
+            const i = document.getElementById('m').value;
+            const r = document.getElementById('n');
+            r.innerHTML = '';
+            const n = parseInt(i);
+            if (isNaN(n) || n < 1) {
+                r.innerHTML = '<p style="color:red;"> Enter the valid number greater than 0.</p>';
+                return;
             }
-            else if (char >= "A" && char <= "Z") {
-                B = "Upper Case !"
-                R = char
+            let tableHTML = `<h3>Table of ${n}</h3>`;
+            for (let i = 1; i <= 10; i++) {
+                tableHTML += `<p>${n} x ${i} = ${n * i}</p>`;
             }
-            else if (char >= "0" && char <= "9") {
-                B = "Digit !"
-                R = char
-            }
-            else if(char>="!","@","#","$","%","^","&","*","-","~","()" && char<="+"){
-                B = "Specail Symbols"
-                R = char
-            }
-            document.getElementById("n").value = B
-            document.getElementById("l").value = R
-            document.getElementById("m").value = " "
-
+            r.innerHTML = tableHTML;
         }
     </script>
-
-
 </body>
-
 </html>
